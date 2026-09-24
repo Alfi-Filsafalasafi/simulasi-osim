@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #fff7e6;
+  --card: #ffffff;
+  --ink: #17383b;
+  --sub: #58757a;
+  --accent: #0b8a78;
+  --accent2: #f5b301;
+  --line: #f1e1bf;
+  --bad: #e5484d;
+  --good: #178a4b;
+  --glow1: rgba(245, 179, 1, 0.25);
+  --glow2: rgba(11, 138, 120, 0.15);
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f2426;
+    --card: #16343a;
+    --ink: #eafaf6;
+    --sub: #9dbdb8;
+    --accent: #14a58f;
+    --accent2: #ffc933;
+    --line: #24494d;
+    --bad: #ff7b7f;
+    --good: #4ade80;
+    --glow1: rgba(255, 201, 51, 0.12);
+    --glow2: rgba(20, 165, 143, 0.18);
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0f2426;
+  --card: #16343a;
+  --ink: #eafaf6;
+  --sub: #9dbdb8;
+  --accent: #14a58f;
+  --accent2: #ffc933;
+  --line: #24494d;
+  --bad: #ff7b7f;
+  --good: #4ade80;
+  --glow1: rgba(255, 201, 51, 0.12);
+  --glow2: rgba(20, 165, 143, 0.18);
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+  font-size: 17px; /* semua ukuran rem Tailwind ikut sedikit lebih besar */
+}
+
+@layer base {
+  body {
+    font-family: var(--font-nunito), system-ui, sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg);
+    background-image:
+      radial-gradient(600px 300px at 90% -5%, var(--glow1), transparent 70%),
+      radial-gradient(500px 300px at -5% 10%, var(--glow2), transparent 70%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-fredoka), var(--font-nunito), sans-serif;
+    letter-spacing: -0.01em;
+  }
+  h1 { font-size: 1.9rem; color: var(--accent); }
+  h2 { font-size: 1.35rem; }
+
+  button { font-weight: 700; }
+}
+
+@layer components {
+  .card-glow {
+    box-shadow: 0 10px 30px -12px var(--glow2);
+  }
+}
